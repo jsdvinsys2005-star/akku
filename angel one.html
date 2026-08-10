@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angel One - Login Demo</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #f5f7fa;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-box {
+        width: 380px;
+        background: white;
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .logo {
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        color: #e31e24;
+        margin-bottom: 8px;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 13px;
+        border: 1px solid #ccc;
+        border-radius: 7px;
+        margin-bottom: 18px;
+        font-size: 15px;
+    }
+
+    input:focus {
+        border-color: #e31e24;
+        outline: none;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 7px;
+        background: #e31e24;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #c9181d;
+    }
+
+    .or {
+        text-align: center;
+        margin: 20px 0;
+        color: #888;
+    }
+
+    .client-btn {
+        background: white;
+        color: #e31e24;
+        border: 1px solid #e31e24;
+    }
+
+    .client-btn:hover {
+        background: #fff1f1;
+    }
+
+    .demo {
+        text-align: center;
+        margin-top: 22px;
+        font-size: 13px;
+        color: #777;
+    }
+
+    #message {
+        text-align: center;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">Angel One</div>
+
+    <div class="subtitle">
+        Investment Platform - Login Demo
+    </div>
+
+    <form id="loginForm">
+
+        <label>Mobile Number</label>
+
+        <input
+            type="tel"
+            id="mobile"
+            placeholder="Enter mobile number"
+            maxlength="10"
+            required
+        >
+
+        <button type="submit">PROCEED</button>
+
+    </form>
+
+    <div class="or">OR</div>
+
+    <button class="client-btn" onclick="clientLogin()">
+        Login with Client ID
+    </button>
+
+    <div id="message"></div>
+
+    <div class="demo">
+        This is an educational demo page.<br>
+        Do not enter real Angel One credentials.
+    </div>
+
+</div>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let mobile = document.getElementById("mobile").value;
+
+    if (!/^[0-9]{10}$/.test(mobile)) {
+        document.getElementById("message").style.color = "red";
+        document.getElementById("message").innerHTML =
+            "Please enter a valid 10-digit mobile number.";
+        return;
+    }
+
+    document.getElementById("message").style.color = "green";
+    document.getElementById("message").innerHTML =
+        "Demo login successful! OTP screen would appear here.";
+});
+
+function clientLogin() {
+
+    document.getElementById("message").style.color = "#e31e24";
+
+    document.getElementById("message").innerHTML =
+        "Client ID login selected.";
+}
+
+</script>
+
+</body>
+</html>
